@@ -12,7 +12,8 @@ h1 {
 .MenuContainer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1;
+    grid-template-rows: 205px 40px 30px;
+    place-items: center;
 }
 h3 {
     font-size: 35px;
