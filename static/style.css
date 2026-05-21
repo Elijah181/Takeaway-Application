@@ -5,23 +5,28 @@ h1 {
     font-size: 100px;
     text-align: center;
 }
+.MenuItemHeading {
+    font-size: 50px;
+    text-align: center;
+}
+.MenuContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1;
+}
 h3 {
     font-size: 35px;
-    text-align: center;
-    margin-bottom: 5px;
+    margin: auto;
 }
 h4{
-    font-size: 20px;
-    text-align: center;
-    
-}
-.menuitem {
-    margin-top: 100px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
+    font-size: 25px;
+    margin: auto;    
 }
 img {
     height: 200px;
+    transition: filter 0.2s ease-in-out;
+}
+img:hover {
+    filter: brightness(0.9);
+    height: 199px;
 }

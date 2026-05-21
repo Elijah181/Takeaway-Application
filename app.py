@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     names = ["Elijah", "Rafael", "Jordan"]
-    return render_template("Burgers.html", names=names)
+    return render_template("menu.html", names=names)
 
 if __name__ == "__main__":
     app.run(debug=True)
