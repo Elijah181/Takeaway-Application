@@ -12,7 +12,11 @@
     <div class="MenuContainer">
 
         <div>
-            <img src="{{ url_for('static', filename='images/burgers/bacon_cheeseburger.png')}}" alt="Bacon Cheeseburger">
+            <form action="/process-data" method="POST">
+                <input type = "hidden" name="item_id" value="bacon_cheeseburger">
+                <button type="submit"><img src="{{ url_for('static', filename='images/burgers/bacon_cheeseburger.png')}}" alt="Bacon Cheeseburger"></button>
+            
+        </form>
         </div>
 
         <div>

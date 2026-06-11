@@ -1,6 +1,10 @@
 html{
     background-color: #DCFFEE;  
 }
+button{
+    border: 0px;
+    background-color: #DCFFEE;
+}
 h1 {
     font-size: 100px;
     text-align: center;
