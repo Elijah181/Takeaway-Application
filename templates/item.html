@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
-    <title>Flask Button Post</title>
+    <title>{{description}}</title>
 </head>
 <body>
     <a href="{{url_for('menu')}}">menu</a>
-    <h4>{{shown_description}}</h4>
+    <p>{{ items[-1] }}</p>
+    <p>{{ items[0] }}</p>
     <form actiom = "/process-item" method="POST">
         <input type="hidden" name="form_id" value="form-amount">
         <label for="amount">Amount:</label>

@@ -1,14 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-
+item_list = []
 @app.route('/')
 def menu():
     return render_template('menu.html')
-
-@app.route('/item')
-def item():
-    return render_template('item.html')
 
 @app.route('/process-item', methods=['POST'])
 def submit_data():
@@ -57,6 +53,13 @@ def submit_data():
                 item_description = "milkshake"
             elif received_item_id == "smoothie":
                 item_description = "smoothie"
-            return redirect(url_for("item"))
+            item_list.append(item_description)
+            return render_template("item.html", items = item_list)
+        elif form_id == "form-amount":
+            item_amount = request.form.get("amount", type = int)
+            if item_amount is not None:
+                return render_template("menu.html") 
+            else:
+                return render_template("item.html", items = item_list)
 if __name__ == '__main__':
     app.run(debug=True)
