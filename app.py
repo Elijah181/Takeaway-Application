@@ -2,10 +2,21 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 item_list = []
+item_find_list = ["bacon_cheesburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza", ]
+amount_list = []
 @app.route('/')
 def menu():
     return render_template('menu.html')
-
+@app.route('/cart')
+def cart():
+    return render_template('cart.html', items = item_list)
+@app.route('/item-to-menu')
+def item_to_menu():
+    item_list.pop()
+    return render_template("menu.html")
+@app.route('/cart_to_menu')
+def cart_to_menu():
+    return render_template("menu.html")
 @app.route('/process-item', methods=['POST'])
 def submit_data():
         form_id = request.form.get('form_id')
@@ -40,9 +51,9 @@ def submit_data():
             elif received_item_id == "garlic_bread":
                 item_description = "garlic bread"
             elif received_item_id == "curly_fries":
-                item_description == "curly fries"
+                item_description = "curly fries"
             elif received_item_id == "salad":
-                item_description == "salad"
+                item_description = "salad"
             elif received_item_id == "fizzy_drink":
                 item_description = "fizzy drink"
             elif received_item_id == "lemonade":
@@ -58,7 +69,10 @@ def submit_data():
         elif form_id == "form-amount":
             item_amount = request.form.get("amount", type = int)
             if item_amount is not None:
-                return render_template("menu.html") 
+                if item_amount <= 0:
+                    return render_template("item.html", items = item_list)
+                else:
+                    return render_template("menu.html") 
             else:
                 return render_template("item.html", items = item_list)
 if __name__ == '__main__':

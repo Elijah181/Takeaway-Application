@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
-    <title>Document</title>
+    <title>Menu</title>
 </head>
 <body>
+    <a href="{{url_for('cart')}}">cart</a>
     <h1>Menu</h1>
     <h2 class="MenuItemHeading">Burgers</h2>
     <div class="MenuContainer">
@@ -164,7 +165,7 @@
         <div>
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
-                <input type = "hidden" name="item_id" value="curly_fries>
+                <input type = "hidden" name="item_id" value="curly_fries">
                 <button type="submit"><img src="{{ url_for('static', filename='images/sides/curly_fries.png')}}" alt="Curly Fries"></button>
             </form>
         </div>

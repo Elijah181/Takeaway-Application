@@ -6,9 +6,8 @@
     <title>{{description}}</title>
 </head>
 <body>
-    <a href="{{url_for('menu')}}">menu</a>
+    <a href="{{url_for('item_to_menu')}}">Go Back To Menu</a>
     <p>{{ items[-1] }}</p>
-    <p>{{ items[0] }}</p>
     <form actiom = "/process-item" method="POST">
         <input type="hidden" name="form_id" value="form-amount">
         <label for="amount">Amount:</label>
