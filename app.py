@@ -15,7 +15,7 @@ def cart():
     return render_template('cart.html', items_name = item_list_name_display)
 @app.route('/item-to-menu')
 def item_to_menu():
-    item_list_description_display.pop()
+    item_list_name_display.pop()
     return render_template("menu.html")
 @app.route('/cart_to_menu')
 def cart_to_menu():
