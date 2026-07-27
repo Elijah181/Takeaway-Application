@@ -1,18 +1,21 @@
 from flask import Flask, render_template, request, redirect, url_for
+import linecache
 
 app = Flask(__name__)
-item_list = []
-item_find_list = ["bacon_cheesburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza", ]
+item_list_name_display = []
+item_list_description_display = []
+item_find_list = ["bacon_cheeseburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza"
+                  "fries", "onion_rings", "garlic_bread", "curly_fries", "salad", "fizzy_drink", "lemonade", "milkshake", "orange_juice", "smoothie"]
 amount_list = []
 @app.route('/')
 def menu():
     return render_template('menu.html')
 @app.route('/cart')
 def cart():
-    return render_template('cart.html', items = item_list)
+    return render_template('cart.html', items_name = item_list_name_display)
 @app.route('/item-to-menu')
 def item_to_menu():
-    item_list.pop()
+    item_list_description_display.pop()
     return render_template("menu.html")
 @app.route('/cart_to_menu')
 def cart_to_menu():
@@ -22,58 +25,23 @@ def submit_data():
         form_id = request.form.get('form_id')
         if form_id == "form_item":
             received_item_id = request.form.get('item_id')
-            if received_item_id == "bacon_cheeseburger":
-                item_description = "bacon cheesburger"
-            elif received_item_id == "chicken_burger":
-                item_description = "chicken burger"
-            elif received_item_id == "fish_burger":
-                item_description = "fish burger"
-            elif received_item_id == "cheeseburger":
-                item_description = "cheeseburger"
-            elif received_item_id == "burger_supreme":
-                item_description = "burger supreme"
-            elif received_item_id == "chicken_burger":
-                item_description = "chicken burger"
-            elif received_item_id == "hawaiian_pizza":
-                item_description = "hawaiian pizza"
-            elif received_item_id == "meat_lovers_pizza":
-                item_description = "meat lovers pizza"
-            elif received_item_id == "peperoni_pizza":
-                item_description = "peperoni pizza"
-            elif received_item_id == "margarita_pizza":
-                item_description = "margarita pizza"
-            elif received_item_id == "ham_and_cheese_pizza":
-                item_description = "ham and cheese pizza"
-            elif received_item_id == "fries":
-                item_description = "fries"
-            elif received_item_id == "onion_rings":
-                item_description = "onion rings"
-            elif received_item_id == "garlic_bread":
-                item_description = "garlic bread"
-            elif received_item_id == "curly_fries":
-                item_description = "curly fries"
-            elif received_item_id == "salad":
-                item_description = "salad"
-            elif received_item_id == "fizzy_drink":
-                item_description = "fizzy drink"
-            elif received_item_id == "lemonade":
-                item_description = "lemonade"
-            elif received_item_id == "orange_juice":
-                item_description = "orange juice"
-            elif received_item_id == "milkshake":
-                item_description = "milkshake"
-            elif received_item_id == "smoothie":
-                item_description = "smoothie"
-            item_list.append(item_description)
-            return render_template("item.html", items = item_list)
+            if received_item_id in item_find_list:
+                line_index = item_find_list.index(received_item_id)
+                line_index = line_index + 1
+                line_index = line_index * 2
+                item_name_display = linecache.getline("words.md", line_index)
+                item_description_display = linecache.getline("words.md", line_index + 1)
+            item_list_description_display.append(item_description_display)
+            item_list_name_display.append(item_name_display)
+            return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
         elif form_id == "form-amount":
             item_amount = request.form.get("amount", type = int)
             if item_amount is not None:
                 if item_amount <= 0:
-                    return render_template("item.html", items = item_list)
+                    return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
                 else:
                     return render_template("menu.html") 
             else:
-                return render_template("item.html", items = item_list)
+                return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
 if __name__ == '__main__':
     app.run(debug=True)

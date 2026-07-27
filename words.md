@@ -1,7 +1,6 @@
 List of words to use for menu item descriptions:
-
 Bacon Cheeseburger
-A juicy beef patty topped with crispy bacon, melted cheese, fresh lettuce, and ripe tomato. Served in a toasted bun with our signature burger sauce for a satisfying classic.
+A juicy beef patty topped with crispy bacon, melted cheese, red onion, tomato and pickles. Served in a toasted bun with our signature burger sauce for a satisfying classic.
 Chicken Burger
 Tender seasoned chicken paired with crisp lettuce and creamy mayo in a soft toasted bun. A delicious combination of fresh flavors and hearty goodness.
 Fish Burger
