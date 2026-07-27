@@ -8,8 +8,8 @@
 <body>
     <a href="{{url_for('cart_to_menu')}}">Go Back To Menu</a>
     <ul>
-        {% for item in items_name %}
-        <li>{{ item }}</li>
+        {% for item, quantity in items_name_amount.items() %}
+        <li><strong>{{ item }}:</strong>{{ quantity }}</li>
         {% endfor %}
     </ul>
 </body>

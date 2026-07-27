@@ -3,16 +3,16 @@ import linecache
 
 app = Flask(__name__)
 item_list_name_display = []
+item_dict_name_amount_display = {}
 item_list_description_display = []
 item_find_list = ["bacon_cheeseburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza"
                   "fries", "onion_rings", "garlic_bread", "curly_fries", "salad", "fizzy_drink", "lemonade", "milkshake", "orange_juice", "smoothie"]
-amount_list = []
 @app.route('/')
 def menu():
     return render_template('menu.html')
 @app.route('/cart')
 def cart():
-    return render_template('cart.html', items_name = item_list_name_display)
+    return render_template('cart.html', items_name_amount = item_dict_name_amount_display)
 @app.route('/item-to-menu')
 def item_to_menu():
     item_list_name_display.pop()
@@ -40,6 +40,7 @@ def submit_data():
                 if item_amount <= 0:
                     return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
                 else:
+                    item_dict_name_amount_display[item_list_name_display[-1]] = item_amount
                     return render_template("menu.html") 
             else:
                 return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
