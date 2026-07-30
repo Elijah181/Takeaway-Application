@@ -5,14 +5,16 @@ app = Flask(__name__)
 item_list_name_display = []
 item_dict_name_amount_display = {}
 item_list_description_display = []
-item_find_list = ["bacon_cheeseburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza"
+item_find_list = ["bacon_cheeseburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza",
                   "fries", "onion_rings", "garlic_bread", "curly_fries", "salad", "fizzy_drink", "lemonade", "milkshake", "orange_juice", "smoothie"]
+item_price_list = [10.00, 10.00, 10.00, 9.50, 12.00, 13.00, 13.00, 13.00, 11.00, 11.00, 6.00, 8.00, 5.50, 9.50, 6.00, 3.00, 2.50, 6.00, 2.50, 6.00]
+item_price_list_display = []
 @app.route('/')
 def menu():
     return render_template('menu.html')
 @app.route('/cart')
 def cart():
-    return render_template('cart.html', items_name_amount = item_dict_name_amount_display)
+    return render_template('cart.html', items_name_amount = item_dict_name_amount_display, item_price = item_price_list_display)
 @app.route('/item-to-menu')
 def item_to_menu():
     item_list_name_display.pop()
@@ -27,6 +29,7 @@ def submit_data():
             received_item_id = request.form.get('item_id')
             if received_item_id in item_find_list:
                 line_index = item_find_list.index(received_item_id)
+                item_price_list_display.append(item_price_list[line_index])
                 line_index = line_index + 1
                 line_index = line_index * 2
                 item_name_display = linecache.getline("words.md", line_index)
@@ -40,7 +43,11 @@ def submit_data():
                 if item_amount <= 0:
                     return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
                 else:
-                    item_dict_name_amount_display[item_list_name_display[-1]] = item_amount
+                    if item_list_name_display[-1] in item_dict_name_amount_display:
+                        item_dict_name_amount_display[item_list_name_display[-1]] += item_amount
+                    else:
+                        item_dict_name_amount_display[item_list_name_display[-1]] = item_amount
+                    item_price_list_display[-1] *= item_amount
                     return render_template("menu.html") 
             else:
                 return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)

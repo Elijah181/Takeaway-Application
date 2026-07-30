@@ -11,14 +11,14 @@ Burger Supreme
 A loaded burger featuring a juicy beef patty, cheese, bacon, fresh salad, and special sauce. Packed with flavor and stacked high for the ultimate burger experience.
 Hawaiian Pizza
 A classic pizza topped with smoky ham and sweet pineapple over melted mozzarella cheese. Baked to perfection on a crispy golden crust.
-Ham and Cheese Pizza
-Generous slices of savory ham layered with melted mozzarella cheese on a rich tomato base. A simple and delicious pizza enjoyed by all ages.
-Margherita Pizza
-Fresh tomato sauce and plenty of melted mozzarella create this timeless Italian favorite. Light, cheesy, and full of classic flavor.
-Pepperoni Pizza
-Loaded with slices of pepperoni and melted mozzarella cheese on a rich tomato base. A bold and flavorful pizza with a satisfying finish.
 Meat Lovers Pizza
 Packed with pepperoni, ham, bacon, and other savory meats over a bed of melted cheese. A hearty choice made for serious meat enthusiasts.
+Pepperoni Pizza
+Loaded with slices of pepperoni and melted mozzarella cheese on a rich tomato base. A bold and flavorful pizza with a satisfying finish.
+Margherita Pizza
+Fresh tomato sauce and plenty of melted mozzarella create this timeless Italian favorite. Light, cheesy, and full of classic flavor.
+Ham and Cheese Pizza
+Generous slices of savory ham layered with melted mozzarella cheese on a rich tomato base. A simple and delicious pizza enjoyed by all ages.
 Fries
 Crispy golden fries cooked until perfectly crunchy on the outside and fluffy inside. A simple and satisfying side for any meal.
 Onion Rings
@@ -33,9 +33,9 @@ Fizzy Drink
 A chilled carbonated beverage served ice cold and full of refreshing flavor. The perfect accompaniment to burgers, pizzas, and sides.
 Lemonade
 A refreshing blend of zesty lemon flavor served chilled for maximum enjoyment. Sweet, tangy, and perfect for any occasion.
-Juice
+Milkshake
+A rich and creamy milkshake blended until smooth and topped with delicious flavor. A classic treat that's both refreshing and indulgent.
+Orange Juice
 A cool and refreshing fruit juice bursting with natural flavor. Served chilled for a delicious and thirst-quenching drink.
 Smoothie
 A creamy blended fruit smoothie made with quality ingredients and refreshing flavors. Smooth, satisfying, and perfect any time of day.
-Milkshake
-A rich and creamy milkshake blended until smooth and topped with delicious flavor. A classic treat that's both refreshing and indulgent.

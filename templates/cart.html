@@ -8,9 +8,13 @@
 <body>
     <a href="{{url_for('cart_to_menu')}}">Go Back To Menu</a>
     <ul>
-        {% for item, quantity in items_name_amount.items() %}
-        <li><strong>{{ item }}:</strong>{{ quantity }}</li>
+        {% if items_name_amount | length == 0 %}
+            <p>Your cart is empty. Please order items from the menu.</p>
+        {% else %}
+            {% for item, quantity in items_name_amount.items() %}
+            <li><strong>{{ item }}: </strong>{{ quantity }}: {{ item_price[loop.index0] }}</li>
         {% endfor %}
+        {% endif %}
     </ul>
 </body>
 </html>
