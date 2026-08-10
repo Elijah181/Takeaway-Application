@@ -12,9 +12,20 @@
             <p>Your cart is empty. Please order items from the menu.</p>
         {% else %}
             {% for item, quantity in items_name_amount.items() %}
-            <li><strong>{{ item }}: </strong>{{ quantity }}: {{ item_price[loop.index0] }}</li>
+            <li><strong>{{ item }}: </strong>{{ quantity }}: ${{ item_price[loop.index0] }}</li>
         {% endfor %}
+        <p>Your total price is ${{ final_price }}</p>
         {% endif %}
     </ul>
+    <form action="/clear-cart" method="POST">
+                <input type="hidden" name="clear" value="clear">
+                <input type = "hidden" name="clear" value="clear">
+                <button type="submit">clear cart</button>
+    </form>
+    <form action="/checkout" method="POST">
+                <input type="hidden" name="checkout" value="checkout">
+                <input type = "hidden" name="checkout" value="checkout">
+                <button type="submit">checkout</button>
+    </form>
 </body>
 </html>

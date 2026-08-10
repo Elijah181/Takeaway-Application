@@ -14,7 +14,10 @@ def menu():
     return render_template('menu.html')
 @app.route('/cart')
 def cart():
-    return render_template('cart.html', items_name_amount = item_dict_name_amount_display, item_price = item_price_list_display)
+    total_price = 0
+    for item in item_price_list_display:
+        total_price += item
+    return render_template('cart.html', items_name_amount = item_dict_name_amount_display, item_price = item_price_list_display, final_price = total_price)
 @app.route('/item-to-menu')
 def item_to_menu():
     item_list_name_display.pop()
@@ -22,15 +25,22 @@ def item_to_menu():
 @app.route('/cart_to_menu')
 def cart_to_menu():
     return render_template("menu.html")
+@app.route('/clear-cart', methods=['POST'])
+def clear_cart():
+    item_list_name_display.clear()
+    item_dict_name_amount_display.clear()
+    item_list_description_display.clear()
+    item_price_list_display.clear()
+    return render_template("menu.html")
 @app.route('/process-item', methods=['POST'])
 def submit_data():
+        global item_index
         form_id = request.form.get('form_id')
         if form_id == "form_item":
             received_item_id = request.form.get('item_id')
             if received_item_id in item_find_list:
-                line_index = item_find_list.index(received_item_id)
-                item_price_list_display.append(item_price_list[line_index])
-                line_index = line_index + 1
+                item_index = item_find_list.index(received_item_id)
+                line_index = item_index + 1
                 line_index = line_index * 2
                 item_name_display = linecache.getline("words.md", line_index)
                 item_description_display = linecache.getline("words.md", line_index + 1)
@@ -43,11 +53,16 @@ def submit_data():
                 if item_amount <= 0:
                     return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
                 else:
+                    price = item_price_list[item_index]
                     if item_list_name_display[-1] in item_dict_name_amount_display:
                         item_dict_name_amount_display[item_list_name_display[-1]] += item_amount
+                        price_index = list(item_dict_name_amount_display).index(item_list_name_display[-1])
+                        price *= item_amount
+                        item_price_list_display[price_index] += price
                     else:
                         item_dict_name_amount_display[item_list_name_display[-1]] = item_amount
-                    item_price_list_display[-1] *= item_amount
+                        price *= item_amount
+                        item_price_list_display.append(price)
                     return render_template("menu.html") 
             else:
                 return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
