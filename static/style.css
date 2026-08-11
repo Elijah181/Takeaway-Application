@@ -1,6 +1,12 @@
 html{
     background-color: #DCFFEE;  
 }
+.CartLogo {
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 button{
     border: 0px;
     background-color: #DCFFEE;
@@ -27,11 +33,11 @@ h4{
     font-size: 25px;
     margin: auto;    
 }
-img {
+.ItemImage {
     height: 200px;
     transition: filter 0.2s ease-in-out;
 }
-img:hover {
+.ItemImage:hover {
     filter: brightness(0.9);
     height: 199px;
 }
