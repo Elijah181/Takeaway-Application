@@ -7,16 +7,17 @@ html{
     top: 0;
     z-index: 1000;
 }
-button{
+.MenuItemButton{
     border: 0px;
     background-color: #DCFFEE;
 }
 h1 {
-    font-size: 100px;
+    font-size: 10vw;
     text-align: center;
+    margin-top: 0px;
 }
 .MenuItemHeading {
-    font-size: 50px;
+    font-size: 5vw;
     text-align: center;
 }
 .MenuContainer {
@@ -26,14 +27,15 @@ h1 {
     place-items: center;
 }
 h3 {
-    font-size: 35px;
+    font-size: 2vw;
     margin: auto;
 }
 h4{
-    font-size: 25px;
+    font-size: 2vw;
     margin: auto;    
 }
 .ItemImage {
+    width: 100%;
     height: 200px;
     transition: filter 0.2s ease-in-out;
 }

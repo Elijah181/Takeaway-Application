@@ -9,13 +9,13 @@
     <a href="{{url_for('cart_to_menu')}}">Menu</a>
     <ul>
         {% if items_name_amount | length == 0 %}
-        <p>Your cart is empty. Please order items from the menu.</p>
+        <h4>Your cart is empty. Please order items from the menu.</h4>
         {% else %}
         {% for item, quantity in items_name_amount.items() %}
         <li><strong>{{ item }} </strong> : {{ quantity }} : ${{ item_price[loop.index0] }}</li>
         <br>
         {% endfor %}
-        <p><u>Your total price is ${{ final_price }}</u></p>
+        <h4><u>Your total price is ${{ final_price }}</u></h4>
         <form action="/clear-cart" method="POST">
                 <input type="hidden" name="clear" value="clear">
                 <input type = "hidden" name="clear" value="clear">

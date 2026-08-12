@@ -5,7 +5,8 @@ app = Flask(__name__) # important for flask to run
 item_list_name_display = []
 item_dict_name_amount_display = {}
 item_list_description_display = [] 
-item_price_list_display = [] # These lists are where the important values are stored
+item_price_list_display = [] 
+# These lists/dictionaries above are where the important values are stored
 item_find_list = ["bacon_cheeseburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza",
                   "fries", "onion_rings", "garlic_bread", "curly_fries", "salad", "fizzy_drink", "lemonade", "milkshake", "orange_juice", "smoothie"]
 item_price_list = [10.00, 10.00, 10.00, 9.50, 12.00, 13.00, 13.00, 13.00, 11.00, 11.00, 6.00, 8.00, 5.50, 9.50, 6.00, 3.00, 2.50, 6.00, 2.50, 6.00]
@@ -26,7 +27,13 @@ def item_to_menu():
     item_list_name_display.pop()
     return render_template("menu.html")
     # takes the user from the individual item pages back to the menu page
-    # removes items from the cart as this route is not meant to but items but return without having them in the cart
+    # removes items from the cart as this route is not meant to take items but return without having them in the cart
+@app.route('/remove-item', methods=['POST'])
+def remove_item():
+    price_index = list(item_dict_name_amount_display).index(item_list_name_display[-1])
+    del item_dict_name_amount_display[item_list_name_display[-1]]
+    item_price_list_display.pop(price_index)
+    return render_template("menu.html")
 @app.route('/cart_to_menu')
 def cart_to_menu():
     return render_template("menu.html")
@@ -65,7 +72,7 @@ def submit_data():
                 item_description_display = linecache.getline("words.md", line_index + 1) # this is the the description of the item
             item_list_description_display.append(item_description_display) 
             item_list_name_display.append(item_name_display)
-            return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display)
+            return render_template("item.html", items_description = item_list_description_display, items_name = item_list_name_display, items_dict = item_dict_name_amount_display)
         elif form_id == "form-amount": # this form is the form mainly used for figuring out the amount of a specific item the user ordered
             item_amount = request.form.get("amount", type = int) # getting the item amount
             if item_amount is not None:
