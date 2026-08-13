@@ -36,6 +36,11 @@ def cart():
                            item_price=item_price_list_display,
                            final_price=total_price)
     # this route allows the user to go from the menu page to the cart and does calculations for the total value of prices
+
+@app.route('/menu_to_menu')
+def menu_to_menu():
+    return render_template("menu.html")
+# This makes it so when the logo is clicked on the menu page it refreshes so there is consistency across the code
 @app.route('/item-to-menu')
 def item_to_menu():
     item_list_name_display.pop()
