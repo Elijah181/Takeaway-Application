@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Beau+Rivage">
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
     <title>{{description}}</title>
 </head>
 <body>
     <a href="{{url_for('item_to_menu')}}">Menu</a>
-    <p>{{ items_name[-1] }}</p>
-    <p>{{ items_description[-1]}}</p>
+    <h3>{{ items_name[-1] }}</h3>
+    <h5>{{ items_description[-1]}}</h5>
     <form actiom = "/process-item" method="POST">
         <input type="hidden" name="form_id" value="form-amount">
         <label for="amount">Amount:</label>
@@ -21,7 +22,7 @@
     <form action="/remove-item" method="POST">
                 <input type="hidden" name="remove" value="remove">
                 <input type = "hidden" name="remove" value="remove">
-                <button type="submit">remove {{ items_name[-1] }}</button>
+                <button type="submit">Remove {{ items_name[-1] }}</button>
     </form>
     {% endif %}
 </body>

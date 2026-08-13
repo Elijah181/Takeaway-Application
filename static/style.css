@@ -1,5 +1,5 @@
 html{
-    background-color: #DCFFEE;  
+    background-color: #BEF9DD;  
 }
 .CartLogo {
     height: 70px;
@@ -9,12 +9,20 @@ html{
 }
 .MenuItemButton{
     border: 0px;
-    background-color: #DCFFEE;
+    background-color: #BEF9DD;
 }
 h1 {
     font-size: 10vw;
     text-align: center;
-    margin-top: 0px;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: auto;
+}
+h2 {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .MenuItemHeading {
     font-size: 5vw;
@@ -28,15 +36,31 @@ h1 {
 }
 h3 {
     font-size: 2vw;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     margin: auto;
 }
 h4{
     font-size: 2vw;
-    margin: auto;    
+    font-family: "Google Sans", sans-serif;
+    font-weight: weight;
+    font-style: normal;
+    margin-top: 75px;    
+}
+h5{
+    font-size: 1.2vw;
+    font-family: "Beau Rivage", cursive;
+    font-weight: 400;
+    font-style: normal;
+    margin:auto;
 }
 .ItemImage {
     width: 100%;
     height: 200px;
+    border-style: double;
+    border-width: 4px;
+    border-radius: 20px;
     transition: filter 0.2s ease-in-out;
 }
 .ItemImage:hover {

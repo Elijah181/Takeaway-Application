@@ -1,26 +1,40 @@
 from flask import Flask, render_template, request, redirect, url_for
-import linecache # import statements to allow flask, buttons, and word files to work
+import linecache
+# import statements to allow flask, buttons, and word files to work
 
-app = Flask(__name__) # important for flask to run
+app = Flask(__name__)
 item_list_name_display = []
 item_dict_name_amount_display = {}
-item_list_description_display = [] 
-item_price_list_display = [] 
+item_list_description_display = []
+item_price_list_display = []
 # These lists/dictionaries above are where the important values are stored
-item_find_list = ["bacon_cheeseburger", "chicken_burger", "fish_burger", "cheeseburger", "burger_supreme", "hawaiian_pizza", "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza", "ham_and_cheese_pizza",
-                  "fries", "onion_rings", "garlic_bread", "curly_fries", "salad", "fizzy_drink", "lemonade", "milkshake", "orange_juice", "smoothie"]
-item_price_list = [10.00, 10.00, 10.00, 9.50, 12.00, 13.00, 13.00, 13.00, 11.00, 11.00, 6.00, 8.00, 5.50, 9.50, 6.00, 3.00, 2.50, 6.00, 2.50, 6.00]
-# the item find and item price lists are used to keep track of important values throughout the code
+item_find_list = ["bacon_cheeseburger", "chicken_burger", "fish_burger",
+                  "cheeseburger", "burger_supreme", "hawaiian_pizza",
+                  "meat_lovers_pizza", "peperoni_pizza", "margarita_pizza",
+                  "ham_and_cheese_pizza", "fries", "onion_rings",
+                  "garlic_bread", "curly_fries", "salad", "fizzy_drink",
+                  "lemonade", "milkshake", "orange_juice", "smoothie"]
+item_price_list = [10.00, 10.00, 10.00, 9.50, 12.00, 13.00, 13.00, 13.00,
+                   11.00, 11.00, 6.00, 8.00, 5.50, 9.50, 6.00, 3.00, 2.50,
+                   6.00, 2.50, 6.00]
+# the lists above are to keep track of important values throughout the code
+
+
 @app.route('/')
 def menu():
-    return render_template('menu.html') 
+    return render_template('menu.html')
     # this route ensures the starts on the menu page
+
+
 @app.route('/cart')
 def cart():
     total_price = 0
     for item in item_price_list_display:
         total_price += item
-    return render_template('cart.html', items_name_amount = item_dict_name_amount_display, item_price = item_price_list_display, final_price = total_price)
+    return render_template('cart.html',
+                           items_name_amount=item_dict_name_amount_display,
+                           item_price=item_price_list_display,
+                           final_price=total_price)
     # this route allows the user to go from the menu page to the cart and does calculations for the total value of prices
 @app.route('/item-to-menu')
 def item_to_menu():
