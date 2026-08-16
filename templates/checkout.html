@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
     <title>Checkout</title>
 </head>
 <body>
-    <a href="{{url_for('checkout_to_menu')}}">Menu</a>
+    <div class="Urls">
+        <a href="{{url_for('cart_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}"></a>
+    </div>
     <p>Please come into store to pickup and pay for you items!</p>
 </body>
 </html>

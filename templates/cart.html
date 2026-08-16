@@ -7,23 +7,33 @@
     <title>Cart</title>
 </head>
 <body>
-    <a href="{{url_for('cart_to_menu')}}">Menu</a>
+    <div class="Urls">
+        <a href="{{url_for('cart_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}"></a>
+    </div>
     <ul>
         {% if items_name_amount | length == 0 %}
         <p>Your cart is empty. Please order items from the menu.</p>
         {% else %}
         {% for item, quantity in items_name_amount.items() %}
-        <li><strong>{{ item }} </strong> : {{ quantity }} : ${{ item_price[loop.index0] }}</li>
-        <br>
+        <div class="CartItem">
+            <div>{{ item }} : </div>
+            <div>{{ quantity }} : </div>
+            <div>${{ item_price[loop.index0] }}</div>
+            <div>
+                <form action="/remove-item" method="POST">
+                    <input type = "hidden" name="remove" value="{{ loop.index0 }}">
+                    <button type="submit">remove</button>
+                </form>
+            </div>
+            <br>
+        </div>
         {% endfor %}
         <p><u>Your total price is ${{ final_price }}</u></p>
         <form action="/clear-cart" method="POST">
                 <input type="hidden" name="clear" value="clear">
-                <input type = "hidden" name="clear" value="clear">
                 <button type="submit">clear cart</button>
     </form>
     <form action="/checkout" method="POST">
-                <input type="hidden" name="checkout" value="checkout">
                 <input type = "hidden" name="checkout" value="checkout">
                 <button type="submit">checkout</button>
     </form>

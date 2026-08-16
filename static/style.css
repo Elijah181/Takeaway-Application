@@ -1,25 +1,36 @@
-html{
-    background-color: #BEF9DD;  
+html {
+    background-color: #BEF9DD;
+}
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+.Urls {
+    display: block;
+    width: 100%;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 .GrillLogo {
     display: inline-block;
     vertical-align: top;
     width: 60%;
     height: auto;
-    margin-right: 10px; 
-    position: sticky;
-    top: 20px;
-    z-index: 1000;
+    vertical-align: middle;
 }
+
 .CartLogo {
-    display: inline-block;
-    vertical-align: top;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 5%;
-    height: auto;
-    margin-right: 300px; 
-    position: sticky;
-    top: 20px;
-    z-index: 1000;
 }
 .MenuItemButton{
     border: 0px;
@@ -63,21 +74,47 @@ h4{
     margin-top: 75px;    
 }
 h5{
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-family: "Beau Rivage", cursive;
     font-weight: 400;
     font-style: normal;
     margin:auto;
+    text-align: center;
 }
-.ItemImage {
-    width: 100%;
+h6 {
+    position: absolute;
+    margin-left: 750px;
+    top: 63%;
+}
+.MenuImage {
+    width: 95%;
     height: 200px;
     border-style: double;
     border-width: 4px;
     border-radius: 20px;
     transition: filter 0.2s ease-in-out;
 }
-.ItemImage:hover {
+.MenuImage:hover {
     filter: brightness(0.9);
     height: 199px;
+}
+.ItemImage {
+    width: 20%;
+    display: block;
+    margin-left: 350px;
+    border-style: double;
+    border-width: 4px;
+    border-radius: 20px;
+}
+.AmountSubmit {
+    position: absolute;
+    left: 750px;
+    top: 60%
+}
+.ItemButton {
+    margin-left: 180px;
+}
+.CartItem {
+    display: flex;
+    gap: 10px;
 }

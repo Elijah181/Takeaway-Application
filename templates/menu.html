@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Google+Sans">
-    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Google+Sans">
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
     <title>Menu</title>
 </head>
 <body>
+    <div class="Urls">
         <a href="{{url_for('cart')}}"><img class="CartLogo" src="{{ url_for('static', filename='images/shopping_icon.png')}}"></a>
         <a href="{{url_for('menu_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}"></a>
+    </div>
     <h1>Menu</h1>
     <h2 class="MenuItemHeading">Burgers</h2>
     <div class="MenuContainer">
@@ -18,7 +20,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="bacon_cheeseburger">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/burgers/bacon_cheeseburger.png')}}" alt="Bacon Cheeseburger"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/burgers/bacon_cheeseburger.png')}}" alt="Bacon Cheeseburger"></button>
             
         </form>
         </div>
@@ -27,7 +29,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="chicken_burger">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/burgers/chicken_burger.png')}}" alt="Chicken Burger"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/burgers/chicken_burger.png')}}" alt="Chicken Burger"></button>
             </form>
         </div>
 
@@ -35,7 +37,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="fish_burger">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/burgers/fish_burger.png')}}" alt="Fish Burger"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/burgers/fish_burger.png')}}" alt="Fish Burger"></button>
             </form>
         </div>
 
@@ -43,7 +45,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="cheeseburger">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/burgers/Cheeseburger.png')}}" alt="Cheesburger"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/burgers/Cheeseburger.png')}}" alt="Cheesburger"></button>
             </form>
         </div>
 
@@ -51,7 +53,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="burger_supreme">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/burgers/burger_supreme.png')}}" alt="Burger Supreme"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/burgers/burger_supreme.png')}}" alt="Burger Supreme"></button>
             </form>
         </div>
 
@@ -82,7 +84,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="hawaiian_pizza">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/pizzas/hawaiian_pizza.png')}}" alt="Hawaiian Pizza"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/pizzas/hawaiian_pizza.png')}}" alt="Hawaiian Pizza"></button>
             </form>
         </div>
 
@@ -90,7 +92,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="meat_lovers_pizza">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/pizzas/meat_lovers_pizza.png')}}" alt="Meat Lovers Pizza"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/pizzas/meat_lovers_pizza.png')}}" alt="Meat Lovers Pizza"></button>
             </form>
         </div>
 
@@ -98,7 +100,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="peperoni_pizza">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/pizzas/peperoni_pizza.png')}}" alt="Peperoni Pizza"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/pizzas/peperoni_pizza.png')}}" alt="Peperoni Pizza"></button>
             </form>
         </div>
 
@@ -106,7 +108,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="margarita_pizza">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/pizzas/margarita_pizza.png')}}" alt="Margarita Pizza"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/pizzas/margarita_pizza.png')}}" alt="Margarita Pizza"></button>
             </form>
         </div>
 
@@ -114,7 +116,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="ham_and_cheese_pizza">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/pizzas/ham_and_cheese_pizza.png')}}" alt="Ham and Cheese Pizza"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/pizzas/ham_and_cheese_pizza.png')}}" alt="Ham and Cheese Pizza"></button>
             </form>
         </div>
 
@@ -144,7 +146,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="fries">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/sides/fries.png')}}" alt="Fries"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/sides/fries.png')}}" alt="Fries"></button>
             </form>
         </div>
 
@@ -152,7 +154,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="onion_rings">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/sides/onion_rings.png')}}" alt="Onion Rings"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/sides/onion_rings.png')}}" alt="Onion Rings"></button>
             </form>
         </div>
 
@@ -160,7 +162,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="garlic_bread">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/sides/garlic_bread.png')}}" alt="Garlic Bread"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/sides/garlic_bread.png')}}" alt="Garlic Bread"></button>
             </form>
         </div>
 
@@ -168,7 +170,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="curly_fries">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/sides/curly_fries.png')}}" alt="Curly Fries"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/sides/curly_fries.png')}}" alt="Curly Fries"></button>
             </form>
         </div>
 
@@ -176,7 +178,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="salad">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/sides/salad.png')}}" alt="Salad"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/sides/salad.png')}}" alt="Salad"></button>
             </form>
         </div>
 
@@ -206,7 +208,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="fizzy_drink">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/drinks/fizzy_drink.png')}}" alt="Fizzy Drink"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/drinks/fizzy_drink.png')}}" alt="Fizzy Drink"></button>
             </form>
         </div>
 
@@ -214,7 +216,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="lemonade">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/drinks/lemonade.png')}}" alt="Lemonade"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/drinks/lemonade.png')}}" alt="Lemonade"></button>
             </form>
         </div>
 
@@ -222,7 +224,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="milkshake">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/drinks/milkshake.png')}}" alt="Milkshake"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/drinks/milkshake.png')}}" alt="Milkshake"></button>
             </form>
         </div>
 
@@ -230,7 +232,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="orange_juice">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/drinks/orange_juice.png')}}" alt="Orange Juice"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/drinks/orange_juice.png')}}" alt="Orange Juice"></button>
             </form>
         </div>
 
@@ -238,7 +240,7 @@
             <form action="/process-item" method="POST">
                 <input type="hidden" name="form_id" value="form_item">
                 <input type = "hidden" name="item_id" value="smoothie">
-                <button class="MenuItemButton" type="submit" ><img class="ItemImage" src="{{ url_for('static', filename='images/drinks/smoothie.png')}}" alt="Smoothie"></button>
+                <button class="MenuItemButton" type="submit" ><img class="MenuImage" src="{{ url_for('static', filename='images/drinks/smoothie.png')}}" alt="Smoothie"></button>
             </form>
         </div>
 

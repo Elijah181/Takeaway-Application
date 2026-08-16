@@ -1,2 +1,2 @@
 # Takeaway-application
-This is a repository which holds the code for my takeaway application.
+My Takeaway Application has a menu page, where any of the pictures can be pressed to go to a seperate item page where you can select the amount, and then you can select cart to go buy or remove items. To use it simply open app.py and click the run button, then go to the link which shows up in the terminal.

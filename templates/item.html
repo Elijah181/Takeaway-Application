@@ -8,22 +8,18 @@
     <title>{{description}}</title>
 </head>
 <body>
-    <a href="{{url_for('item_to_menu')}}">Menu</a>
-    <h3>{{ items_name[-1] }}</h3>
-    <h5>{{ items_description[-1]}}</h5>
-    <form actiom = "/process-item" method="POST">
+    <div class="Urls">
+    <a href="{{url_for('cart_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}"></a>
+    </div>
+    <h1>{{ items_name_display }}</h1>
+    <h5>{{ items_description_display }}</h5>
+    <img class="ItemImage" src="{{ url_for('static', filename='images/' ~ item_picture_display) }}" alt="Bacon Cheeseburger">
+    <h6>{{  item_allergies_display }}</h6>
+    <form class="AmountSubmit" action = "/process-item" method="POST">
         <input type="hidden" name="form_id" value="form-amount">
         <label for="amount">Amount:</label>
         <input type ="number" name="amount" amount ="amount"><br><br>
-        <input type="submit"value="submit">
+        <input class="ItemButton" type="submit"value="submit">
     </form>
-    {% if items_name[-1] in items_dict %}
-    <p>This item is already in your cart, if you would like to remove it please click the button below</p>
-    <form action="/remove-item" method="POST">
-                <input type="hidden" name="remove" value="remove">
-                <input type = "hidden" name="remove" value="remove">
-                <button type="submit">Remove {{ items_name[-1] }}</button>
-    </form>
-    {% endif %}
 </body>
 </html>
