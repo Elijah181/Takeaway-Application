@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Beau+Rivage">
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
-    <title>{{description}}</title>
+    <title>{{ items_name_show }}</title>
 </head>
 <body>
     <div class="Urls">
-    <a href="{{url_for('cart_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}"></a>
+    <a href="{{url_for('item_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}"alt="Grill logo"></a>
     </div>
-    <h1>{{ items_name_display }}</h1>
-    <h5>{{ items_description_display }}</h5>
-    <img class="ItemImage" src="{{ url_for('static', filename='images/' ~ item_picture_display) }}" alt="Bacon Cheeseburger">
-    <h6>{{  item_allergies_display }}</h6>
+    <h1>{{ items_name_show }}</h1>
+    <h5>{{ items_description_show }}</h5>
+    <img class="ItemImage" src="{{ url_for('static', filename='images/' ~ item_picture_show) }}" alt="Bacon Cheeseburger">
+    <h6>{{  item_allergies_show }}</h6>
     <form class="AmountSubmit" action = "/process-item" method="POST">
         <input type="hidden" name="form_id" value="form-amount">
         <label for="amount">Amount:</label>

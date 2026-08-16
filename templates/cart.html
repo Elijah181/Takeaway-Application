@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="Urls">
-        <a href="{{url_for('cart_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}"></a>
+        <a href="{{url_for('cart_to_menu')}}"><img class="GrillLogo" src="{{ url_for('static', filename='images/the_grill_icon.png')}}" alt="Grill logo"></a>
     </div>
     <ul>
         {% if items_name_amount | length == 0 %}
